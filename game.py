@@ -49,8 +49,33 @@ while(playing):
     
     if userInput == "q":
         playing = False
-        
-#  how to pick the seed
+        # selectedpit = 0
+    elif player1 and userInput == "a":  #  how to pick the seed
+        selectedpit = 1
+    elif player1 and userInput == "b":
+        selectedpit = 2  
+    elif player1 and userInput == "c":
+        selectedpit = 3
+    elif player1 and userInput == "d":
+        selectedpit = 4
+    elif player1 and userInput == "e":
+        selectedpit = 5 
+    elif player2 and userInput == "g":
+        selectedpit = 7    
+    elif player2 and userInput == "h":
+        selectedpit = 8               
+    elif player2 and userInput == "i":
+        selectedpit = 9               
+    elif player2 and userInput == "j":
+        selectedpit = 10               
+    elif player2 and userInput == "k":
+        selectedpit = 11
+    elif player2 and userInput == "l":
+        selectedpit = 12     
+    else:
+        print (say)             
+               
+
 # how to distribute the seed
 # assign the players
 # how players take turns
