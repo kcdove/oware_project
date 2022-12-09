@@ -2,82 +2,150 @@
 # creating the board
 # total_number_of_seeds = 48
 #  total_number_of_pits = 12
-pitseeds = [ 4, 4, 4, 4, 4, 4, 0, 4, 4, 4, 4, 4, 4, 0] # this is an array of the number of seed in the pit
+pitseeds = [ 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4] # this is an array of the number of seed in the pit
 
 playing = True
 
-Player1_pit = ('a', 'b', 'c', 'd', 'e', 'f')
-player2_pit = ('g', 'h', 'i', 'j', 'k', 'l')
+# player1 = input ("players one: enter your name: ")
+
+
+player1 = True
+
+msgcode = 0
 
 while(playing):
     # a tuple of the player's pits
-    player1 = Player1_pit
-    if player1:
-        say = ("player1s' Turn. chose from g-l")
-    else:
-        say =("invalid pit")
-    player2 = player2_pit
-    if player2:
-        say = ("player2s' Turn. chose from g-l")
-    else:
-        say =("invalid pit")
-    print(say)
+    if player1 and msgcode == 0:
+       msg = ("player1's Turn. chose from a-f")
+    elif not(player1) and msgcode == 0:
+       msg = ("player2's Turn. chose from g-l" )
+    # elif player1 and msgcode == -2:
+    #    msg = "Invalid input. Try again, player1"  
+    # elif not(player1) and msgcode == -2:
+    #    msg = "Invalid input. Try again, player2" 
+    elif player1 and msgcode == -1:
+        msg = ("you must choose a non-empty bin, player1")
+    elif not(player1) and msgcode == -1:
+        msg = ("you must choose a non-empty bin, player2")
+    print("")
+    print(msg)
+    print("")
+    msgcode = 0
     
-   
     i = 0          #index variable
     for seed in pitseeds:
         pitseeds[i] = int(pitseeds[i] )
-        if int(pitseeds[i]) < 10:
+        if int(pitseeds[i]) < 13:
             pitseeds[i] = " " + str(pitseeds[i])
         else:
             pitseeds[i] = str()
         i = i + 1
+        
+        
     print("")
-    if player2:
-        print("        l    k    j    i    h    g")
-    print("+----+----+----+----+----+----+----+----+")
-    print("|    | "+ pitseeds[12] +" | "+ pitseeds[11] +" | "+ pitseeds[10] +" | "+ pitseeds[9] +" | "+ pitseeds[8] +" | "+ pitseeds[7] +" |    |")
-    print("| "+ pitseeds[13] +" |----+----+----+----+----+----| "+ pitseeds[6] +" |")
-    print("|    | "+ pitseeds[0] +" | "+ pitseeds[1] +" | "+ pitseeds[2] +" | "+ pitseeds[3] +" | "+ pitseeds[4] +" | "+ pitseeds[5] +" |    |")
-    print("+----+----+----+----+----+----+----+----+")
+   
+    print("   l    k    j    i    h    g")
+    print("+----+----+----+----+----+----+")
+    print("| "+ pitseeds[11] +" | "+ pitseeds[10] +" | "+ pitseeds[9] +" | "+ pitseeds[8] +" | "+ pitseeds[7] +" | "+ pitseeds[6] +" |")
+    print("|----+----+----+----+----+----|")
+    print("| "+ pitseeds[0] +" | "+ pitseeds[1] +" | "+ pitseeds[2] +" | "+ pitseeds[3] +" | "+ pitseeds[4] +" | "+ pitseeds[5] +" |")
+    print("+----+----+----+----+----+----+")
     
-    
-    if player1:
-        print("        a    b    c    d    e    f")
-        print("")
-    userInput = input ("Enter 'q' to QUIT the game: ")
+    print("   a    b    c    d    e    f")
+    print("")
+   
+    userInput = input ("Enter a letter to choose a pit or 'q' to QUIT the game: ") 
     
     if userInput == "q":
+        selectedpit = 0 
         playing = False
-        # selectedpit = 0
+   
     elif player1 and userInput == "a":  #  how to pick the seed
-        selectedpit = 1
+        selectedpit = 0 
     elif player1 and userInput == "b":
-        selectedpit = 2  
+        selectedpit = 1 
     elif player1 and userInput == "c":
-        selectedpit = 3
+        selectedpit = 2
     elif player1 and userInput == "d":
-        selectedpit = 4
+        selectedpit = 3
     elif player1 and userInput == "e":
+        selectedpit = 4 
+    elif player1 and userInput == "f":
         selectedpit = 5 
-    elif player2 and userInput == "g":
-        selectedpit = 7    
-    elif player2 and userInput == "h":
+    elif not(player1) and userInput == "g":
+        selectedpit = 6    
+    elif not(player1) and userInput == "h":
+        selectedpit = 7               
+    elif not(player1) and userInput == "i":
         selectedpit = 8               
-    elif player2 and userInput == "i":
+    elif not(player1) and userInput == "j":
         selectedpit = 9               
-    elif player2 and userInput == "j":
-        selectedpit = 10               
-    elif player2 and userInput == "k":
-        selectedpit = 11
-    elif player2 and userInput == "l":
-        selectedpit = 12     
+    elif not(player1) and userInput == "k":
+        selectedpit = 10
+    elif not(player1) and userInput == "l":
+        selectedpit = 11     
     else:
-        print (say)             
-               
+        selectedpit = -2
+        msgcode = -2    #Invalid input
+        
+    if int(selectedpit) >= 0:
+        seedsow = pitseeds[selectedpit]
+        pitseeds[selectedpit] = 0
+        if int(seedsow) <= 1:
+            msgcode = -1   #empty bin was chosen
+       
+                 #    how to distribute the seed # 
+                 
+    recievingpit = selectedpit + 1
+    if recievingpit == 12:
+        recievingpit = 0
 
+    while (int(seedsow) > 0): 
+        if (player1 and (int(recievingpit))== 11):
+            recievingpit = 0
+        pitseeds[recievingpit] = int(pitseeds[recievingpit]) + 1  
+        seedsow = int(seedsow) - 1
+        recievingpit = int(recievingpit) + 1
+        if int (recievingpit) > 11:
+           recievingpit = 0   
+            
+        # if recievingpit > 1  and seedsow == 1:  
+        #     # seedsow = int(seedsow) - 1 
+        #      pitseeds[recievingpit] = int(pitseeds[recievingpit]) + 1  
+        # seedsow = int(seedsow) - 1
+        # recievingpit = int(recievingpit) + 1
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        # # if seedsow == 1 and recievingpit >= 1:
+        # #     pitseeds[recievingpit] = int(pitseeds[recievingpit]) 
+        # #     print (pitseeds[recievingpit])
+        # #     player1 = not(player1) 
+       
+    
+    
+    
+    
+        #      #how to redistribute the seed
+    
+
+    player1 = not(player1)         
+               
+# when its invalid iput player1 it should b player1 turn to play
 # how to distribute the seed
-# assign the players
-# how players take turns
-#  make sure the player select a valid pit
+
 # how to determine who wins 
