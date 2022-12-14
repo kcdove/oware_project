@@ -1,7 +1,12 @@
 # oware_project
- An African board game
-According to wikipedia, Oware is an abstract strategy game among the mancala family of board games (pit and pebble games) played worldwide with slight variations as to the layout of the game, number of players and strategy of play. Its origin is uncertain but it is widely believed to be of Ashanti origin. 
-*** The objective of the game is to capture more seed onn the board than your opponent. ***
+An African board game.
+
+According to wikipedia, Oware is an abstract strategy game among the mancala family of board games (pit and pebble games) played worldwide with slight variations as to the layout of the game, number of players and strategy of play. Its origin is uncertain but it is widely believed to be of Ashanti origin.
+
+* The objective of the game is to capture more seed onn the board than your opponent. *
+
+!(https://github.com/kcdove/oware_project/img/owareboard.jpeg)
+
 image.png
 
 ## how the game is played
