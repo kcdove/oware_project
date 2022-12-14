@@ -19,10 +19,10 @@ while(playing):
        msg = ("player1's Turn. chose from a-f")
     elif not(player1) and msgcode == 0:
        msg = ("player2's Turn. chose from g-l" )
-    elif player1 and msgcode == -2:
-       msg = "Invalid input. Try again, player1"  
-    elif not(player1) and msgcode == -2:
-       msg = "Invalid input. Try again, player2" 
+    # elif player1 and msgcode == -2:
+    #    msg = "Invalid input. Try again, player1"  
+    # elif not(player1) and msgcode == -2:
+    #    msg = "Invalid input. Try again, player2" 
     elif player1 and msgcode == -1:
         msg = ("you must choose a non-empty bin, player1")
     elif not(player1) and msgcode == -1:
@@ -34,8 +34,8 @@ while(playing):
     
     i = 0          #index variable
     for seed in pitseeds:
-        pitseeds[i] = int(pitseeds[i])
-        if int(pitseeds[i]) < 10:
+        pitseeds[i] = int(pitseeds[i] )
+        if int(pitseeds[i]) < 13:
             pitseeds[i] = " " + str(pitseeds[i])
         else:
             pitseeds[i] = str()
@@ -46,9 +46,9 @@ while(playing):
    
     print("   l    k    j    i    h    g")
     print("+----+----+----+----+----+----+")
-    print("| "+ pitseeds[11] +" | "+ pitseeds[10] +" | "+ pitseeds[9] +" | "+ pitseeds[8] +" | "+ pitseeds[7] +" | "+ pitseeds[6] +" |  ")
+    print("| "+ pitseeds[11] +" | "+ pitseeds[10] +" | "+ pitseeds[9] +" | "+ pitseeds[8] +" | "+ pitseeds[7] +" | "+ pitseeds[6] +" |")
     print("|----+----+----+----+----+----|")
-    print("| "+ pitseeds[0] +" | "+ pitseeds[1] +" | "+ pitseeds[2] +" | "+ pitseeds[3] +" | "+ pitseeds[4] +" | "+ pitseeds[5] +" |  ")
+    print("| "+ pitseeds[0] +" | "+ pitseeds[1] +" | "+ pitseeds[2] +" | "+ pitseeds[3] +" | "+ pitseeds[4] +" | "+ pitseeds[5] +" |")
     print("+----+----+----+----+----+----+")
     
     print("   a    b    c    d    e    f")
@@ -59,8 +59,9 @@ while(playing):
     if userInput == "q":
         selectedpit = 0 
         playing = False
+#  how to pick the seed
    
-    elif player1 and userInput == "a":  #  how to pick the seed
+    elif player1 and userInput == "a":  
         selectedpit = 0 
     elif player1 and userInput == "b":
         selectedpit = 1 
@@ -100,23 +101,56 @@ while(playing):
     if recievingpit == 12:
         recievingpit = 0
 
-    while True: 
+    while (int(seedsow) > 0): 
         if (player1 and (int(recievingpit))== 11):
             recievingpit = 0
         pitseeds[recievingpit] = int(pitseeds[recievingpit]) + 1  
         seedsow = int(seedsow) - 1
         recievingpit = int(recievingpit) + 1
-        if int (recievingpit) > 11:
-           recievingpit = 0   
+        if int(seedsow) < 1:
+            pitseeds == 0
+            pitseeds[recievingpit] = int(pitseeds[recievingpit]) + 1
+            
+        # if int (recievingpit) > 11:
+        #    recievingpit = 0   
+            
+        # if recievingpit > 1  and seedsow == 1:  
+        #     # seedsow = int(seedsow) - 1 
+        #      pitseeds[recievingpit] = int(pitseeds[recievingpit]) + 1  
+        # seedsow = int(seedsow) - 1
+        # recievingpit = int(recievingpit) + 1
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
         
-                  #how to redistribute the seed
-        if int(seedsow) == 0:
-            if pitseeds[recievingpit] == 1:
-                break
-            else:
-                seedsow = pitseeds[recievingpit]
-                pitseeds[recievingpit] = 0     
+        # # if seedsow == 1 and recievingpit >= 1:
+        # #     pitseeds[recievingpit] = int(pitseeds[recievingpit]) 
+        # #     print (pitseeds[recievingpit])
+        # #     player1 = not(player1) 
+       
+    
+    
+    
+    
+        #      #how to redistribute the seed
+    
 
-    player1 = not(player1)        
+    player1 = not(player1)         
+               
+# when its invalid iput player1 it should b player1 turn to play
+# how to distribute the seed
 
 # how to determine who wins 
