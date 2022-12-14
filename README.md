@@ -5,7 +5,7 @@ According to wikipedia, Oware is an abstract strategy game among the mancala fam
 
 *The objective of the game is to capture more seed on the board than your opponent.*
 
-![This is the traditional Oware board](https://github.com/kcdove/oware_project/img/owareboard.jpeg)
+![This is the traditional Oware board](https://github.com/kcdove/oware_project/blob/main/img/owareboard.jpeg)
 
 
 ## how the game is played
