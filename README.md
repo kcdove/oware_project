@@ -8,7 +8,7 @@ According to wikipedia, Oware is an abstract strategy game among the mancala fam
 ![This is the traditional Oware board](https://github.com/kcdove/oware_project/blob/main/img/owareboard.jpeg)
 
 
-## how the game is played
+## How the game is played
 - Oware board game contains twelve (12) pits. 
 - Shared betweenn two players on either side of the board. 
 - Each pits consits of four(4) seeds.
